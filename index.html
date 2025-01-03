@@ -1,1 +1,50 @@
-Hello World！
+<!DOCTYPE html>
+<html>
+<head>
+  <title>单选框和查询按钮</title>
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+    .container {
+      width: 300px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>请选择你的选项：</h2>
+    <form id="myForm">
+      <label>
+        <input type="radio" name="option" value="option1"> 选项一
+      </label>
+      <label>
+        <input type="radio" name="option" value="option2"> 选项二
+      </label>
+      <button type="button" id="queryButton">查询</button>
+    </form>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    const queryButton = document.getElementById('queryButton');
+    const resultDiv = document.getElementById('result');
+
+    queryButton.addEventListener('click', () => {
+      const selectedOption = document.querySelector('input[name="option"]:checked');
+      if (selectedOption) {
+        resultDiv.textContent = `你选择了：${selectedOption.value}`;
+      } else {
+        resultDiv.textContent = '请选择一个选项！';
+      }
+    });
+  </script>
+</body>
+</html>
